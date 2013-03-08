@@ -29,3 +29,15 @@ Hubot code.
 Add a dependency on sprintf, to 0.1.1 in your packages.json file
 
     "sprintf": "0.1.1"
+
+The script expects configuration keys to exist:
+
+    HUBOT_HEROKU_USER
+    HUBOT_HEROKU_APIKEY
+
+## Caveats
+
+This code is provided AS IS.
+
+You are advised to check it before using it - I'm not a JS guy but you're
+welcome to send me pull requests!
