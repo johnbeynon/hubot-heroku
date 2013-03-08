@@ -19,8 +19,8 @@
 
 sprintf  = require("sprintf").sprintf
 
-user = process.env.HEROKU_USER
-apiKey = process.env.HEROKU_APIKEY
+user = process.env.HUBOT_HEROKU_USER
+apiKey = process.env.HUBOT_HEROKU_APIKEY
 
 module.exports = (robot) ->
   # heroku ps --app <appname> - returns process information of heroku app
