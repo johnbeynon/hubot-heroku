@@ -1,17 +1,22 @@
-# A limited way to interact with the Heroku API.
+# Description:
+#   Allows Hubot to control Heroku applications
 #
-# INSTALLATION:
-# 1. Create file in scripts folder in hubot folder
-# 2. Update package.json for hubot and add dependency on "sprintf": "0.1.1"
-# 3. Set heroku config variable HEROKU_USER to heroku user account to use
-# 4. Set heroku config variable HEROKU_APIKEY to heroku user account apikey (from My Account page)
+# Dependencies:
+#   "sprintf": "0.1.1"
 #
-# heroku status - Retrieve the most recent tweet from the @herokustatus account
-# heroku ps --app <appname> - Get process information for application
-# heroku ps:scale <process>=<quantity> --app <appname> - Scale the process to quantity for application
-# heroku ps:restart <process> --app <appname> - Restart the specified process for application# 
-# heroku ps:stop <process> --app <appname> - Stop the specified process for application
+# Configuration:
+#   HUBOT_HEROKU_USER
+#   HUBOT_HEROKU_APIKEY
 #
+# Commands:
+#   heroku ps --app <appname> - Get process information for application
+#   heroku ps:scale <process>=<quantity> --app <appname> - Scale the process to quantity for application
+#   heroku ps:restart <process> --app <appname> - Restart the specified process for application# 
+#   heroku ps:stop <process> --app <appname> - Stop the specified process for application
+#
+# Author:
+#   John Beynon
+
 sprintf  = require("sprintf").sprintf
 
 user = process.env.HEROKU_USER
@@ -101,14 +106,4 @@ module.exports = (robot) ->
         return
 
       msg.send "Stopped " + type + " processes"
-
-  # heroku status
-  robot.respond /heroku status/, (msg) ->
-   msg.http("http://api.twitter.com/1/statuses/user_timeline/herokustatus.json?count=1")
-    .get() (err, res, body) ->
-      response = JSON.parse body
-      if response[0]
-       msg.send "#{response[0]['created_at']} > #{response[0]['text']}"
-      else
-       msg.send "Error"
 
