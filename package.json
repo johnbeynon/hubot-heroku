@@ -1,0 +1,17 @@
+{
+  "name": "hubot-heroku",
+  "version": "0.0.1",
+  "author": "John Beynon <john@beynon.org.uk>",
+  "description": "A Heroku adapter for Hubot",
+  "keywords": [
+    "heroku",
+    "hubot"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/johnbeynon/hubot-heroku.git"
+  },
+  "dependencies": {
+    "sprintf": "0.1.1",
+  }
+}
